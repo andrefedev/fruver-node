@@ -1,1 +1,1 @@
-## Fruver Backend APi
+## Fruver AWS Serverless (APi)

@@ -1,0 +1,40 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "A sample SAM template for deploying Lambda functions",
+  "Resources": {
+    "check2FaTokenFunc": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "FunctionName": "check2FaTokenFunc",
+        "Descripcion": "DynamoDB check record",
+        "Handler": "check2FaTokenFunc/index.handler",
+        "RunTime": "nodejs12.x",
+        "MemorySize": 128,
+        "TimeOut": 15
+      }
+    },
+    "generate2FaTokenFunc": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "FunctionName": "generate2FaTokenFunc",
+        "Descripcion": "Twilio send message and create a token",
+        "Handler": "generate2FaTokenFunc/index.handler",
+        "RunTime": "nodejs12.x",
+        "MemorySize": 256,
+        "TimeOut": 20
+      }
+    },
+    "lookupPhoneNumberFunc": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "FunctionName": "lookupPhoneNumberFunc",
+        "Descripcion": "Twilio lookup phone number",
+        "Handler": "lookupPhoneNumberFunc/index.handler",
+        "RunTime": "nodejs12.x",
+        "MemorySize": 128,
+        "TimeOut": 15
+      }
+    }
+  }
+}
