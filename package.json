@@ -1,32 +1,23 @@
 {
   "name": "fruver",
   "version": "0.1.0",
-  "description": "Fruver Backend APi",
+  "description": "Fruver Backend AWS ServerLess",
   "main": "index.js",
-  "repository": "https://github.com/andrefedev/fruver.git",
-  "author": "Andres Osorio",
-  "license": "MIT",
   "scripts": {
-    "build": "babel src -d lib",
-    "start": "nodemon ./src/index.js --exec babel-node"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "aws-sdk": "^2.643.0",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "mongodb": "^3.5.5"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrefedev/fruver.git"
   },
+  "author": "Andres Osorio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrefedev/fruver/issues"
+  },
+  "homepage": "https://github.com/andrefedev/fruver#readme",
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/node": "^7.8.7",
-    "@babel/preset-env": "^7.9.0",
-    "babel-eslint": "^10.1.0",
-    "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "nodemon": "^2.0.2",
-    "prettier": "^1.19.1"
+    "prettier": "^2.0.1"
   }
 }
