@@ -4,7 +4,8 @@
   "description": "Fruver Backend AWS ServerLess",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "aws:test": "node ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,11 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "prettier": "^2.0.1"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.646.0",
+    "chalk": "^3.0.0",
+    "dotenv": "^8.2.0",
+    "yargs": "^15.3.1"
   }
 }

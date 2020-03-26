@@ -2,38 +2,64 @@
   "AWSTemplateFormatVersion": "2010-09-09",
   "Transform": "AWS::Serverless-2016-10-31",
   "Description": "A sample SAM template for deploying Lambda functions",
+
+  "Parameters": {
+    "ACCOUNTSID": {
+      "Description": "Twilio Account SID (is required)",
+      "Type": "String"
+    },
+    "AUTHTOKEN": {
+      "Description": "Twilio Token Auth (is required)",
+      "Type": "String"
+    }
+  },
+
   "Resources": {
+    "Bucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties" {
+        "BucketName": "codeUri"
+      }
+    },
     "check2FaTokenFunc": {
       "Type": "AWS::Serverless::Function",
       "Properties": {
         "FunctionName": "check2FaTokenFunc",
-        "Descripcion": "DynamoDB check record",
+        "Description": "DynamoDB check record",
         "Handler": "check2FaTokenFunc/index.handler",
-        "RunTime": "nodejs12.x",
+        "Runtime": "nodejs12.x",
         "MemorySize": 128,
-        "TimeOut": 15
+        "Timeout": 15
       }
     },
     "generate2FaTokenFunc": {
       "Type": "AWS::Serverless::Function",
       "Properties": {
         "FunctionName": "generate2FaTokenFunc",
-        "Descripcion": "Twilio send message and create a token",
+        "Description": "Twilio send message and create a token",
         "Handler": "generate2FaTokenFunc/index.handler",
-        "RunTime": "nodejs12.x",
+        "Runtime": "nodejs12.x",
         "MemorySize": 256,
-        "TimeOut": 20
+        "Timeout": 20
       }
     },
     "lookupPhoneNumberFunc": {
       "Type": "AWS::Serverless::Function",
       "Properties": {
         "FunctionName": "lookupPhoneNumberFunc",
-        "Descripcion": "Twilio lookup phone number",
+        "Description": "Twilio lookup phone number",
         "Handler": "lookupPhoneNumberFunc/index.handler",
-        "RunTime": "nodejs12.x",
+        "Environment": {
+          "sid": {
+            "Ref": "ACCOUNTSID"
+          },
+          "token": {
+            "Ref": "AUTHTOKEN"
+          }
+        },
+        "Runtime": "nodejs12.x",
         "MemorySize": 128,
-        "TimeOut": 15
+        "Timeout": 15
       }
     }
   }
